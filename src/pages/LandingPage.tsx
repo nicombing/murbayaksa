@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Map, Shield, Users, Leaf, ArrowRight, ScanLine, Compass, MapPin, Globe, Menu, X, Instagram, Linkedin, Facebook } from 'lucide-react';
+import { Shield, Users, Leaf, ArrowRight, ScanLine, Compass, MapPin, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Logo } from '../components/Logo';
 import Lenis from 'lenis';
@@ -161,10 +161,10 @@ const LandingPage = () => {
                  ))}
                </nav>
 
-               <div className="mt-auto pt-16 flex items-center gap-8 text-[#22252b]/60">
-                 <a href="#social" className="hover:text-[#22252b] transition-colors"><Instagram /></a>
-                 <a href="#social" className="hover:text-[#22252b] transition-colors"><Linkedin /></a>
-                 <a href="#social" className="hover:text-[#22252b] transition-colors"><Facebook /></a>
+               <div className="mt-auto pt-16 flex items-center gap-8 text-[#22252b]/60 font-bold">
+                 <a href="#social" className="hover:text-[#22252b] transition-colors">IG</a>
+                 <a href="#social" className="hover:text-[#22252b] transition-colors">IN</a>
+                 <a href="#social" className="hover:text-[#22252b] transition-colors">FB</a>
                </div>
             </div>
 
@@ -424,10 +424,10 @@ const LandingPage = () => {
         </div>
         <div className="max-w-7xl mx-auto border-t border-white/10 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-sm text-white/40">© 2026 Lintas Alam Murbayaksa Kencana Nusantara. {t('footer.rights')} | {t('footer.developedBy')}</p>
-          <div className="flex gap-6">
-            <a href="#" className="text-white/40 hover:text-white transition-colors"><Instagram size={24} /></a>
-            <a href="#" className="text-white/40 hover:text-white transition-colors"><Facebook size={24} /></a>
-            <a href="#" className="text-white/40 hover:text-white transition-colors"><Linkedin size={24} /></a>
+          <div className="flex gap-6 font-bold">
+            <a href="#" className="text-white/40 hover:text-white transition-colors">IG</a>
+            <a href="#" className="text-white/40 hover:text-white transition-colors">FB</a>
+            <a href="#" className="text-white/40 hover:text-white transition-colors">IN</a>
           </div>
         </div>
       </footer>
