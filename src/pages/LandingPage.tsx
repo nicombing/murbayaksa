@@ -89,7 +89,7 @@ const LandingPage = () => {
       </header>
 
       {/* Language Switcher Fixed Bottom Right */}
-      <div className="fixed bottom-8 right-8 z-40 flex gap-2 pointer-events-auto">
+      <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-40 flex gap-2 pointer-events-auto">
          <button 
             onClick={() => setLang('id')}
             className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-sm transition-colors duration-300 ${lang === 'id' ? 'bg-[#D95F43] text-white shadow-lg' : 'bg-[#EDEBEB] text-[#22252b] hover:bg-gray-300'}`}
@@ -123,7 +123,7 @@ const LandingPage = () => {
             </button>
 
             {/* Menu Left/Main Content */}
-            <div className="w-full md:w-2/3 h-full pt-32 px-12 md:px-24 flex flex-col justify-center pb-24">
+            <div className="w-full md:w-2/3 h-full pt-24 md:pt-32 px-6 md:px-24 flex flex-col justify-center pb-24">
                <nav className="flex flex-col gap-6 md:gap-10">
                  {[
                    { label: t('nav.home'), href: '#home' },
@@ -143,7 +143,7 @@ const LandingPage = () => {
                      {item.isRoute ? (
                        <Link 
                          to={item.href} 
-                         className="text-4xl md:text-7xl font-bold text-[#22252b] hover:opacity-70 transition-opacity tracking-tight"
+                         className="text-3xl sm:text-5xl md:text-7xl font-bold text-[#22252b] hover:opacity-70 transition-opacity tracking-tight"
                          onClick={() => setMenuOpen(false)}
                        >
                          {item.label}
@@ -151,7 +151,7 @@ const LandingPage = () => {
                      ) : (
                        <a 
                          href={item.href} 
-                         className="text-4xl md:text-7xl font-bold text-[#22252b] hover:opacity-70 transition-opacity tracking-tight"
+                         className="text-3xl sm:text-5xl md:text-7xl font-bold text-[#22252b] hover:opacity-70 transition-opacity tracking-tight"
                          onClick={() => setMenuOpen(false)}
                        >
                          {item.label}
@@ -216,7 +216,7 @@ const LandingPage = () => {
                   {t('hero.desc')}
                 </motion.p>
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2 }}>
-                  <Link to="/app/setup" className="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-white text-white px-10 py-5 rounded-full text-xl font-bold hover:bg-white hover:text-black transition-all duration-300">
+                  <Link to="/app/setup" className="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-white text-white px-6 py-3 md:px-10 md:py-5 rounded-full text-lg md:text-xl font-bold hover:bg-white hover:text-black transition-all duration-300">
                     {t('hero.btnExplore')}
                   </Link>
                 </motion.div>
@@ -234,7 +234,7 @@ const LandingPage = () => {
                 <p className="text-xl md:text-2xl text-white/90 max-w-2xl font-light leading-relaxed mb-10">
                   {t('challenge.desc')}
                 </p>
-                <Link to="/app/setup" className="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-white text-white px-10 py-5 rounded-full text-xl font-bold hover:bg-white hover:text-black transition-all duration-300">
+                <Link to="/app/setup" className="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-white text-white px-6 py-3 md:px-10 md:py-5 rounded-full text-lg md:text-xl font-bold hover:bg-white hover:text-black transition-all duration-300">
                   {t('challenge.btnTry')}
                 </Link>
              </div>
@@ -306,25 +306,25 @@ const LandingPage = () => {
             <div className="absolute inset-0 bg-[#E8EFE8] rounded-full blur-3xl opacity-50 transform -scale-x-100" />
             
             {/* Highly Polished Mobile Mockup */}
-            <div className="w-[340px] h-[700px] bg-white rounded-[3.5rem] border-[12px] border-[#22252b] shadow-2xl relative overflow-hidden flex flex-col group z-10">
+            <div className="w-[300px] h-[620px] sm:w-[340px] sm:h-[700px] bg-white rounded-[3.5rem] border-[12px] border-[#22252b] shadow-2xl relative overflow-hidden flex flex-col group z-10">
               {/* Dynamic Island / Notch */}
-              <div className="absolute top-2 inset-x-0 h-6 bg-[#22252b] rounded-full w-32 mx-auto z-30" />
+              <div className="absolute top-2 inset-x-0 h-6 bg-[#22252b] rounded-full w-24 sm:w-32 mx-auto z-30" />
 
               {/* App Content */}
-              <div className="flex-1 flex flex-col relative z-10 pt-16 pb-8 px-6 bg-[#FCFAF8]">
+              <div className="flex-1 flex flex-col relative z-10 pt-14 sm:pt-16 pb-6 sm:pb-8 px-5 sm:px-6 bg-[#FCFAF8]">
                 
-                <div className="flex justify-between items-center mb-8">
+                <div className="flex justify-between items-center mb-6 sm:mb-8">
                   <div>
-                    <h4 className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-1">Checkpoint</h4>
-                    <h3 className="text-xl font-bold text-[#2C4C3B] leading-tight">Pos 1: Geger Sabuk</h3>
+                    <h4 className="text-[10px] sm:text-xs font-bold text-gray-400 tracking-widest uppercase mb-1">Checkpoint</h4>
+                    <h3 className="text-lg sm:text-xl font-bold text-[#2C4C3B] leading-tight">Pos 1: Geger Sabuk</h3>
                   </div>
-                  <div className="w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center border border-gray-100 text-[#C86A51]">
-                    <Leaf size={20} />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-md flex items-center justify-center border border-gray-100 text-[#C86A51]">
+                    <Leaf className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                 </div>
 
                 {/* Scanner Viewfinder */}
-                <div className="w-full h-[320px] bg-[#22252b] rounded-[2rem] mb-6 relative overflow-hidden shadow-inner">
+                <div className="w-full h-[260px] sm:h-[320px] bg-[#22252b] rounded-[1.5rem] sm:rounded-[2rem] mb-4 sm:mb-6 relative overflow-hidden shadow-inner">
                   <div className="absolute inset-0 bg-cover bg-center opacity-80 mix-blend-luminosity scale-110" style={{ backgroundImage: 'url(/barcode_tree.jpg)' }}></div>
                   <div className="absolute inset-6 border-[3px] border-dashed border-white/30 rounded-[1.5rem]" />
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white bg-black/40 p-5 rounded-full backdrop-blur-md">
@@ -383,7 +383,7 @@ const LandingPage = () => {
             <h3 className="text-3xl md:text-4xl text-[#E8EFE8] mb-12 font-light tracking-tight">{t('institutional.subtitle')}</h3>
             <p className="text-xl md:text-2xl text-white/70 max-w-4xl mx-auto leading-relaxed mb-16 font-light" dangerouslySetInnerHTML={{ __html: t('institutional.desc').replace('International Schools', '<strong class="text-white">International Schools</strong>').replace('State Institutions / Academies', '<strong class="text-white">State Institutions / Academies</strong>') }} />
             
-            <button className="bg-transparent border-2 border-[#C86A51] text-[#C86A51] hover:bg-[#C86A51] hover:text-white font-bold px-12 py-6 rounded-full text-xl transition-all duration-300">
+            <button className="bg-transparent border-2 border-[#C86A51] text-[#C86A51] hover:bg-[#C86A51] hover:text-white font-bold px-8 py-4 md:px-12 md:py-6 rounded-full text-lg md:text-xl transition-all duration-300">
               {t('institutional.btnRequest')}
             </button>
           </motion.div>
