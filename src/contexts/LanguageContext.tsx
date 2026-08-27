@@ -13,7 +13,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 import { translations } from '../i18n/translations';
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [lang, setLangState] = useState<Language>('en');
+  const [lang, setLangState] = useState<Language>('id');
 
   useEffect(() => {
     const saved = localStorage.getItem('murbayaksa_lang') as Language;
