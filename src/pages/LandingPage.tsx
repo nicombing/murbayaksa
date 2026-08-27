@@ -67,42 +67,42 @@ const LandingPage = () => {
           <span className="hidden md:block tracking-widest uppercase">Murbayaksa</span>
         </div>
 
-        {/* Right: Hamburger Menu & Controls */}
-        <div className="flex flex-col items-end gap-6 pointer-events-auto">
+        {/* Right: Language Switcher & Hamburger Menu */}
+        <div className="flex items-center gap-3 sm:gap-6 pointer-events-auto">
+          
+          {/* Language Switcher */}
+          <div className="flex gap-1 bg-black/20 backdrop-blur-md rounded-full p-1 border border-white/20">
+             <button 
+                onClick={() => setLang('id')}
+                className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm transition-colors duration-300 ${lang === 'id' ? 'bg-[#D95F43] text-white shadow-lg' : 'text-white hover:bg-white/20'}`}
+              >
+                ID
+             </button>
+             <button 
+                onClick={() => setLang('en')}
+                className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm transition-colors duration-300 ${lang === 'en' ? 'bg-[#D95F43] text-white shadow-lg' : 'text-white hover:bg-white/20'}`}
+              >
+                EN
+             </button>
+          </div>
+
           {/* Menu Button */}
           <button 
             onClick={() => setMenuOpen(true)}
-            className="group flex items-center justify-center gap-4 bg-white/10 hover:bg-white/20 backdrop-blur-md px-6 py-4 rounded-full border border-white/20 transition-all duration-300"
+            className="group flex items-center justify-center gap-3 sm:gap-4 bg-black/20 hover:bg-black/40 backdrop-blur-md px-4 sm:px-6 py-3 sm:py-4 rounded-full border border-white/20 transition-all duration-300"
           >
-            <span className="text-white uppercase tracking-[0.2em] font-bold text-sm">Menu</span>
-            <div className="relative w-8 h-8 flex items-center justify-center">
-               {/* 4 dots arranged in a diamond/square, like Kervan Gida */}
+            <span className="text-white uppercase tracking-[0.2em] font-bold text-xs sm:text-sm hidden sm:block">Menu</span>
+            <div className="relative w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center">
                <div className="grid grid-cols-2 gap-1 group-hover:scale-110 transition-transform duration-300">
-                 <div className="w-2 h-2 rounded-full border border-white group-hover:bg-white transition-colors" />
-                 <div className="w-2 h-2 rounded-full border border-white group-hover:bg-white transition-colors" />
-                 <div className="w-2 h-2 rounded-full border border-white group-hover:bg-white transition-colors" />
-                 <div className="w-2 h-2 rounded-full border border-white group-hover:bg-white transition-colors" />
+                 <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full border border-white group-hover:bg-white transition-colors" />
+                 <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full border border-white group-hover:bg-white transition-colors" />
+                 <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full border border-white group-hover:bg-white transition-colors" />
+                 <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full border border-white group-hover:bg-white transition-colors" />
                </div>
             </div>
           </button>
         </div>
       </header>
-
-      {/* Language Switcher Fixed Bottom Right */}
-      <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-40 flex gap-2 pointer-events-auto">
-         <button 
-            onClick={() => setLang('id')}
-            className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-sm transition-colors duration-300 ${lang === 'id' ? 'bg-[#D95F43] text-white shadow-lg' : 'bg-[#EDEBEB] text-[#22252b] hover:bg-gray-300'}`}
-          >
-            ID
-         </button>
-         <button 
-            onClick={() => setLang('en')}
-            className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-sm transition-colors duration-300 ${lang === 'en' ? 'bg-[#D95F43] text-white shadow-lg' : 'bg-[#EDEBEB] text-[#22252b] hover:bg-gray-300'}`}
-          >
-            EN
-         </button>
-      </div>
 
       {/* Full Screen Overlay Menu */}
       <AnimatePresence>
@@ -201,22 +201,22 @@ const LandingPage = () => {
           {/* Slide 1 */}
           <SwiperSlide>
              <div className="absolute inset-0 bg-cover bg-center transform scale-105 animate-[slowZoom_20s_ease-out_infinite]" style={{ backgroundImage: 'url(/hero.png)' }} />
-             <div className="absolute inset-0 bg-black/40" />
-             <div className="absolute bottom-24 left-6 md:left-24 z-10 w-full max-w-4xl pr-6">
+             <div className="absolute inset-0 bg-black/50" /> {/* Darkened for better contrast */}
+             <div className="absolute inset-0 flex flex-col justify-end pb-32 md:pb-40 px-6 md:px-24 z-10 w-full max-w-4xl">
                 <motion.h1 
                   initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5 }}
-                  className="text-5xl md:text-[5rem] font-bold text-white leading-[1.1] tracking-tight mb-8"
+                  className="text-4xl sm:text-5xl md:text-[5rem] font-bold text-white leading-[1.1] tracking-tight mb-6 sm:mb-8 drop-shadow-2xl"
                 >
-                  {t('hero.title1')} <span className="text-[#C86A51]">{t('hero.title2')}</span>
+                  {t('hero.title1')} <span className="text-[#FF9D82]">{t('hero.title2')}</span>
                 </motion.h1>
                 <motion.p 
                   initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.8 }}
-                  className="text-xl md:text-2xl text-white/90 max-w-2xl font-light leading-relaxed mb-10"
+                  className="text-lg sm:text-xl md:text-2xl text-white max-w-2xl font-medium leading-relaxed mb-8 sm:mb-10 drop-shadow-lg"
                 >
                   {t('hero.desc')}
                 </motion.p>
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1.2 }}>
-                  <Link to="/app/setup" className="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-white text-white px-6 py-3 md:px-10 md:py-5 rounded-full text-lg md:text-xl font-bold hover:bg-white hover:text-black transition-all duration-300">
+                  <Link to="/app/setup" className="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-white text-white px-6 py-3 md:px-10 md:py-5 rounded-full text-lg md:text-xl font-bold hover:bg-white hover:text-black transition-all duration-300 shadow-xl">
                     {t('hero.btnExplore')}
                   </Link>
                 </motion.div>
@@ -226,17 +226,19 @@ const LandingPage = () => {
           {/* Additional Slides can be added here mimicking Kervan Gida's multiple banners */}
           <SwiperSlide>
              <div className="absolute inset-0 bg-cover bg-center transform scale-105" style={{ backgroundImage: 'url(/barcode_tree.jpg)' }} />
-             <div className="absolute inset-0 bg-black/50" />
-             <div className="absolute bottom-24 left-6 md:left-24 z-10 w-full max-w-4xl pr-6">
-                <h1 className="text-5xl md:text-[5rem] font-bold text-white leading-[1.1] tracking-tight mb-8">
+             <div className="absolute inset-0 bg-black/50" /> {/* Darkened for better contrast */}
+             <div className="absolute inset-0 flex flex-col justify-end pb-32 md:pb-40 px-6 md:px-24 z-10 w-full max-w-4xl">
+                <h1 className="text-4xl sm:text-5xl md:text-[5rem] font-bold text-white leading-[1.1] tracking-tight mb-6 sm:mb-8 drop-shadow-2xl">
                   {t('challenge.title')}
                 </h1>
-                <p className="text-xl md:text-2xl text-white/90 max-w-2xl font-light leading-relaxed mb-10">
+                <p className="text-lg sm:text-xl md:text-2xl text-white max-w-2xl font-medium leading-relaxed mb-8 sm:mb-10 drop-shadow-lg">
                   {t('challenge.desc')}
                 </p>
-                <Link to="/app/setup" className="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-white text-white px-6 py-3 md:px-10 md:py-5 rounded-full text-lg md:text-xl font-bold hover:bg-white hover:text-black transition-all duration-300">
-                  {t('challenge.btnTry')}
-                </Link>
+                <div>
+                  <Link to="/app/setup" className="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-white text-white px-6 py-3 md:px-10 md:py-5 rounded-full text-lg md:text-xl font-bold hover:bg-white hover:text-black transition-all duration-300 shadow-xl">
+                    {t('challenge.btnTry')}
+                  </Link>
+                </div>
              </div>
           </SwiperSlide>
         </Swiper>
