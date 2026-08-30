@@ -225,7 +225,7 @@ const LandingPage = () => {
 
           {/* Additional Slides can be added here mimicking Kervan Gida's multiple banners */}
           <SwiperSlide>
-             <div className="absolute inset-0 bg-cover bg-center transform scale-105" style={{ backgroundImage: 'url(/barcode_tree.jpg)' }} />
+             <div className="absolute inset-0 bg-cover bg-center transform scale-105" style={{ backgroundImage: 'url(/qrcode_tree.jpg)' }} />
              <div className="absolute inset-0 bg-black/50" /> {/* Darkened for better contrast */}
              <div className="absolute inset-0 flex flex-col justify-end pb-32 md:pb-40 px-6 md:px-24 z-10 w-full max-w-4xl">
                 <h1 className="text-4xl sm:text-5xl md:text-[5rem] font-bold text-white leading-[1.1] tracking-tight mb-6 sm:mb-8 drop-shadow-2xl">
@@ -327,7 +327,7 @@ const LandingPage = () => {
 
                 {/* Scanner Viewfinder */}
                 <div className="w-full h-[260px] sm:h-[320px] bg-[#22252b] rounded-[1.5rem] sm:rounded-[2rem] mb-4 sm:mb-6 relative overflow-hidden shadow-inner">
-                  <div className="absolute inset-0 bg-cover bg-center opacity-80 mix-blend-luminosity scale-110" style={{ backgroundImage: 'url(/barcode_tree.jpg)' }}></div>
+                  <div className="absolute inset-0 bg-cover bg-center opacity-80 mix-blend-luminosity scale-110" style={{ backgroundImage: 'url(/qrcode_tree.jpg)' }}></div>
                   <div className="absolute inset-6 border-[3px] border-dashed border-white/30 rounded-[1.5rem]" />
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white bg-black/40 p-5 rounded-full backdrop-blur-md">
                     <ScanLine size={48} className="animate-pulse" />

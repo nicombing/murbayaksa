@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTrailData } from '../hooks/useTrailData';
 import { useNavigate } from 'react-router-dom';
-import { X, ScanLine, CheckCircle2 } from 'lucide-react';
+import { X, CheckCircle2 } from 'lucide-react';
 import { cn } from '../components/Layout';
 import { useLanguage } from '../contexts/LanguageContext';
+import { Html5Qrcode } from 'html5-qrcode';
 
 const ScannerModal = () => {
   const { checkpoints, unlockCheckpoint } = useTrailData();
@@ -11,15 +12,10 @@ const ScannerModal = () => {
   const { t } = useLanguage();
   const [scanning, setScanning] = useState(true);
   const [success, setSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
   
   const nextCheckpoint = checkpoints.find(c => !c.unlockedAt);
-
-  useEffect(() => {
-    if (scanning && nextCheckpoint) {
-      const timer = setTimeout(() => handleUnlock(), 3000);
-      return () => clearTimeout(timer);
-    }
-  }, [scanning, nextCheckpoint]);
+  const scannerRef = useRef<Html5Qrcode | null>(null);
 
   const handleUnlock = async () => {
     if (!nextCheckpoint) return;
@@ -28,6 +24,47 @@ const ScannerModal = () => {
     await unlockCheckpoint(nextCheckpoint.id);
     setTimeout(() => navigate('/app/dashboard'), 2500);
   };
+
+  useEffect(() => {
+    if (scanning && nextCheckpoint) {
+      scannerRef.current = new Html5Qrcode("qr-reader");
+      
+      scannerRef.current.start(
+        { facingMode: "environment" }, 
+        {
+          fps: 10,
+          qrbox: { width: 250, height: 250 }
+        },
+        (decodedText) => {
+          // Check if the scanned QR code matches the expected next checkpoint
+          if (decodedText === nextCheckpoint.id) {
+            if (scannerRef.current?.isScanning) {
+              scannerRef.current.stop().then(() => {
+                handleUnlock();
+              }).catch(console.error);
+            } else {
+              handleUnlock();
+            }
+          } else {
+            // It's a valid QR code, but not the right one!
+            setErrorMsg(`Scanned: ${decodedText}. Expected: ${nextCheckpoint.id}`);
+            setTimeout(() => setErrorMsg(null), 3000);
+          }
+        },
+        () => {
+          // parse errors are frequent while scanning, just ignore them
+        }
+      ).catch(err => {
+        console.error("Error starting scanner", err);
+      });
+
+      return () => {
+        if (scannerRef.current?.isScanning) {
+          scannerRef.current.stop().catch(console.error);
+        }
+      };
+    }
+  }, [scanning, nextCheckpoint]);
 
   if (!nextCheckpoint) {
     return (
@@ -54,15 +91,17 @@ const ScannerModal = () => {
       </div>
 
       <div className="flex-1 relative flex items-center justify-center">
+        {/* Container for the real camera scanner */}
+        <div id="qr-reader" className="absolute inset-0 w-full h-full object-cover z-0"></div>
+
+        {/* Custom scanline overlay on top of the camera */}
         {scanning && (
-          <div className="absolute inset-x-12 h-64 border-2 border-white/30 rounded-2xl overflow-hidden shadow-[0_0_0_9999px_rgba(0,0,0,0.5)]">
+          <div className="absolute inset-x-12 h-64 border-2 border-white/30 rounded-2xl overflow-hidden shadow-[0_0_0_9999px_rgba(0,0,0,0.5)] pointer-events-none z-10">
             <div className="absolute top-0 left-0 right-0 h-1 bg-accent shadow-[0_0_15px_rgba(200,106,81,0.8)] animate-[scan_2s_ease-in-out_infinite]" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <ScanLine size={48} className="text-white/50" />
-            </div>
           </div>
         )}
 
+        {/* Success overlay */}
         <div className={cn("absolute inset-0 flex flex-col items-center justify-center bg-primary/90 backdrop-blur-md transition-opacity duration-500 z-30 px-6 text-center", success ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none")}>
           <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center text-accent mb-6 animate-[bounce_1s_ease-in-out]">
             <CheckCircle2 size={48} />
@@ -72,7 +111,12 @@ const ScannerModal = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-24 left-0 right-0 p-6 z-20 text-center">
+      <div className="absolute bottom-24 left-0 right-0 p-6 z-20 text-center flex flex-col items-center gap-4">
+        {errorMsg && (
+          <div className="bg-red-500/80 text-white py-2 px-4 rounded-lg backdrop-blur-md text-sm font-bold animate-pulse">
+            {errorMsg}
+          </div>
+        )}
         <p className="text-white/80 bg-black/50 backdrop-blur-md py-3 px-6 rounded-xl inline-block">
           {scanning ? t('pwa.scanner.instructionScan') : t('pwa.scanner.instructionSaved')}
         </p>
@@ -82,6 +126,16 @@ const ScannerModal = () => {
         @keyframes scan {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(256px); }
+        }
+        /* Hide the default html5-qrcode UI elements that we don't want */
+        #qr-reader {
+          border: none !important;
+        }
+        #qr-reader__scan_region {
+          background: transparent !important;
+        }
+        #qr-reader video {
+          object-fit: cover !important;
         }
       `}</style>
     </div>

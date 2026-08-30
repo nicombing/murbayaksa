@@ -27,8 +27,8 @@ export const translations = {
     challenge: {
       badge: 'Interactive Experience',
       title: 'Digital Challenge',
-      desc: 'Murbayaksa isn\'t just a hike; it\'s the "Murbayaksa Digital Challenge". Use our offline-first PWA to scan physical barcodes at our posts.',
-      f1: { title: 'Scan 9 Physical Barcodes', desc: 'Find our posts hidden along the trail.' },
+      desc: 'Murbayaksa isn\'t just a hike; it\'s the "Murbayaksa Digital Challenge". Use our offline-first PWA to scan physical QR codes at our posts.',
+      f1: { title: 'Scan 9 Physical QR codes', desc: 'Find our posts hidden along the trail.' },
       f2: { title: 'Unlock Folklore & Science', desc: 'Learn about local flora, fauna, and geology.' },
       f3: { title: 'Track Safety Offline', desc: 'Your progress is saved locally, no signal required.' },
       f4: { title: 'Climb the Leaderboard', desc: 'Sync your data at the finishing gate to see how you rank.' },
@@ -148,8 +148,8 @@ export const translations = {
     challenge: {
       badge: 'Pengalaman Interaktif',
       title: 'Tantangan Digital',
-      desc: 'Murbayaksa bukan sekadar pendakian; ini adalah "Tantangan Digital Murbayaksa". Gunakan PWA offline kami untuk memindai barcode fisik di pos-pos kami.',
-      f1: { title: 'Pindai 9 Barcode Fisik', desc: 'Temukan pos-pos kami yang tersembunyi di sepanjang jalur.' },
+      desc: 'Murbayaksa bukan sekadar pendakian; ini adalah "Tantangan Digital Murbayaksa". Gunakan PWA offline kami untuk memindai QR code fisik di pos-pos kami.',
+      f1: { title: 'Pindai 9 QR code Fisik', desc: 'Temukan pos-pos kami yang tersembunyi di sepanjang jalur.' },
       f2: { title: 'Buka Cerita Rakyat & Sains', desc: 'Pelajari tentang flora, fauna, dan geologi lokal.' },
       f3: { title: 'Lacak Keselamatan Offline', desc: 'Kemajuan Anda disimpan secara lokal, tanpa perlu sinyal.' },
       f4: { title: 'Naikkan Peringkat', desc: 'Sinkronkan data Anda di gerbang akhir untuk melihat peringkat Anda.' },
