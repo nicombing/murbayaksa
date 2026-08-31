@@ -11,7 +11,7 @@ import LandingPage from './pages/LandingPage';
 function App() {
   return (
     <LanguageProvider>
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <BrowserRouter>
       <Routes>
         {/* Main Marketing Website */}
         <Route path="/" element={<LandingPage />} />
