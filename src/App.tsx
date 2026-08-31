@@ -6,7 +6,6 @@ import ScannerModal from './pages/ScannerModal';
 import Library from './pages/Library';
 import SyncScreen from './pages/SyncScreen';
 import Onboarding from './pages/Onboarding';
-import LandingPage from './pages/LandingPage';
 
 function App() {
   return (
@@ -15,9 +14,6 @@ function App() {
       <Routes>
         {/* Redirect root to App */}
         <Route path="/" element={<Navigate to="/app" replace />} />
-        
-        {/* Main Marketing Website */}
-        <Route path="/landing" element={<LandingPage />} />
 
         {/* PWA Trail Tracker */}
         <Route path="/app/setup" element={
