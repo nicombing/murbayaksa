@@ -13,8 +13,11 @@ function App() {
     <LanguageProvider>
       <BrowserRouter>
       <Routes>
+        {/* Redirect root to App */}
+        <Route path="/" element={<Navigate to="/app" replace />} />
+        
         {/* Main Marketing Website */}
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/landing" element={<LandingPage />} />
 
         {/* PWA Trail Tracker */}
         <Route path="/app/setup" element={

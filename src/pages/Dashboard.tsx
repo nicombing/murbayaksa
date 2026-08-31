@@ -1,7 +1,7 @@
 import { useTrailData } from '../hooks/useTrailData';
 import { MapPin, Trophy, ChevronRight } from 'lucide-react';
 import { cn } from '../components/Layout';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Logo } from '../components/Logo';
 
@@ -12,6 +12,10 @@ const Dashboard = () => {
 
   if (loading) {
     return <div className="p-6 flex items-center justify-center h-full"><div className="animate-pulse text-accent">Loading trail data...</div></div>;
+  }
+
+  if (!config) {
+    return <Navigate to="/app/setup" replace />;
   }
 
   const progress = getProgress();
