@@ -76,13 +76,18 @@ const Dashboard = () => {
                   {isUnlocked ? <MapPin size={20} /> : <span className="font-bold">{index + 1}</span>}
                 </div>
 
-                <div className={cn("bg-white p-4 rounded-2xl flex-1 shadow-sm border transition-all duration-200", isNext ? "border-accent shadow-md cursor-pointer hover:bg-card/30" : "border-gray-100", isUnlocked ? "" : "grayscale")} onClick={() => isNext && navigate('/app/scan')}>
+                <div className={cn("bg-white p-4 rounded-2xl flex-1 shadow-sm border transition-all duration-200", isNext ? "border-accent shadow-md cursor-pointer hover:bg-card/30" : "border-gray-100", isUnlocked ? "cursor-pointer hover:bg-card/30" : "grayscale")} onClick={() => { if (isNext) navigate('/app/scan'); else if (isUnlocked) navigate(`/app/pos/${cp.id}`); }}>
                   <h3 className="font-bold text-text mb-1">{t(`pwa.waypoints.${cp.id}.name`)}</h3>
                   <p className="text-xs text-text-muted line-clamp-2">{isUnlocked ? t(`pwa.waypoints.${cp.id}.desc`) : t('pwa.dashboard.unknown')}</p>
                   
                   {isNext && (
                     <div className="mt-3 flex items-center text-xs font-bold text-accent">
                       {t('pwa.dashboard.scanToUnlock')} <ChevronRight size={14} />
+                    </div>
+                  )}
+                  {isUnlocked && (
+                    <div className="mt-3 flex items-center text-xs font-bold text-primary">
+                      {t('pwa.pos.readAgain')} <ChevronRight size={14} />
                     </div>
                   )}
                 </div>

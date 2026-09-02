@@ -6,6 +6,7 @@ import ScannerModal from './pages/ScannerModal';
 import Library from './pages/Library';
 import SyncScreen from './pages/SyncScreen';
 import Onboarding from './pages/Onboarding';
+import PosDetail from './pages/PosDetail';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="scan" element={<ScannerModal />} />
           <Route path="library" element={<Library />} />
           <Route path="sync" element={<SyncScreen />} />
+          <Route path="pos/:id" element={<PosDetail />} />
         </Route>
 
         {/* Catch-all redirect */}

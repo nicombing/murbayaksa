@@ -105,18 +105,23 @@ export const translations = {
         successDesc: 'Your progress has been synced successfully to the leaderboards.',
         btnNew: 'Start New Trail'
       },
+      pos: {
+        didYouKnow: 'Did you know?',
+        continue: 'Continue Trail',
+        readAgain: 'Read Knowledge'
+      },
       waypoints: {
-        wg: { name: 'West Gate: Joglo', desc: 'The western entrance to the Murbayaksa trail.' },
-        p1: { name: 'Pos 1: Geger Sabuk', desc: 'A steady climb begins here.' },
-        p2: { name: 'Pos 2: Karto', desc: 'Deep in the forest.' },
-        p3: { name: 'Pos 3: Pasir Buntu', desc: 'A challenging sandy path.' },
-        p4: { name: 'Pos 4: Geger Muria', desc: 'A ridge with beautiful views.' },
-        p5: { name: 'Pos 5: Geger Baturenges', desc: 'Rocky terrain ahead.' },
-        p6: { name: 'Pos 6: Campaka Cibedok', desc: 'A lush, green valley area.' },
-        p7: { name: 'Pos 7: Kakatelan Kawah Purba', desc: 'An ancient volcanic crater.' },
-        p8: { name: 'Pos 8: Salikur', desc: 'High altitude flora thrives here.' },
-        p9: { name: 'Pos 9: Cece Logo', desc: 'The final stretch of the deep trail.' },
-        eg: { name: 'East Gate: Gowok', desc: 'The eastern entrance and exit.' },
+        wg: { name: 'West Gate: Joglo', desc: 'The western entrance to the Murbayaksa trail.', content: 'Joglo serves as the main registration point and safety briefing area. Before you begin your hike, make sure your water bottles are full!' },
+        p1: { name: 'Pos 1: Geger Sabuk', desc: 'A steady climb begins here.', content: 'Geger Sabuk is known for its unique rock formations. The soil here is rich in volcanic minerals from ancient eruptions, creating a perfect habitat for local mosses.' },
+        p2: { name: 'Pos 2: Karto Cigintung', desc: 'Deep in the forest.', content: 'Karto Cigintung is a prime spot for bird watching. Listen closely, and you might hear the distinctive call of the Javan Hawk-Eagle soaring above the canopy.' },
+        p3: { name: 'Pos 3: Pasir Buntu', desc: 'A challenging sandy path.', content: 'The sandy terrain of Pasir Buntu is a geological remnant of ancient volcanic ash flows. The vegetation here is highly adapted to dry, porous soil conditions.' },
+        p4: { name: 'Pos 4: Geger Muria', desc: 'A ridge with beautiful views.', content: 'From the ridge of Geger Muria, you can see the expansive buffer forest. This area acts as a crucial water catchment zone for the surrounding villages.' },
+        p5: { name: 'Pos 5: Geger Baturenges', desc: 'Rocky terrain ahead.', content: 'The word "Baturenges" refers to the harsh, jagged volcanic rocks found here. Be careful with your steps as the path becomes more technically challenging.' },
+        p6: { name: 'Pos 6: Campaka Cibedok', desc: 'A lush, green valley area.', content: 'Campaka Cibedok is named after the fragrant Campaka flowers that occasionally bloom in this humid microclimate. It’s an oasis of biodiversity.' },
+        p7: { name: 'Pos 7: Kakatelan Kawah Purba', desc: 'An ancient volcanic crater.', content: 'You are standing near the rim of an ancient, dormant crater. The sulfur deposits in the soil create unique colors and support specialized extremophile plants.' },
+        p8: { name: 'Pos 8: Salikur', desc: 'High altitude flora thrives here.', content: 'At this altitude, the air is noticeably thinner and cooler. The trees here, such as the Cantigi, have thick leaves to prevent moisture loss in the cold wind.' },
+        p9: { name: 'Pos 9: Cece Logo', desc: 'The final stretch of the deep trail.', content: 'Cece Logo marks the final major challenge. The dense canopy here creates a cool, shadowy environment favored by nocturnal animals resting during the day.' },
+        eg: { name: 'East Gate: Gowok', desc: 'The eastern entrance and exit.', content: 'Congratulations on reaching the East Gate! Gowok is a traditional resting point where hikers can cool down, rehydrate, and sync their digital progress.' },
       }
     }
   },
@@ -225,18 +230,23 @@ export const translations = {
         successDesc: 'Kemajuan Anda berhasil disinkronkan ke papan peringkat.',
         btnNew: 'Mulai Jalur Baru'
       },
+      pos: {
+        didYouKnow: 'Tahukah Anda?',
+        continue: 'Lanjutkan Jalur',
+        readAgain: 'Baca Pengetahuan'
+      },
       waypoints: {
-        wg: { name: 'Gerbang Barat: Joglo', desc: 'Pintu masuk barat ke jalur Murbayaksa.' },
-        p1: { name: 'Pos 1: Geger Sabuk', desc: 'Pendakian yang stabil dimulai di sini.' },
-        p2: { name: 'Pos 2: Karto', desc: 'Jauh di dalam hutan.' },
-        p3: { name: 'Pos 3: Pasir Buntu', desc: 'Jalur berpasir yang menantang.' },
-        p4: { name: 'Pos 4: Geger Muria', desc: 'Punggung bukit dengan pemandangan indah.' },
-        p5: { name: 'Pos 5: Geger Baturenges', desc: 'Medan berbatu di depan.' },
-        p6: { name: 'Pos 6: Campaka Cibedok', desc: 'Area lembah yang hijau dan subur.' },
-        p7: { name: 'Pos 7: Kakatelan Kawah Purba', desc: 'Kawah vulkanik kuno.' },
-        p8: { name: 'Pos 8: Salikur', desc: 'Flora dataran tinggi tumbuh subur di sini.' },
-        p9: { name: 'Pos 9: Cece Logo', desc: 'Bagian akhir dari jalur dalam.' },
-        eg: { name: 'Gerbang Timur: Gowok', desc: 'Pintu masuk dan keluar timur.' },
+        wg: { name: 'Gerbang Barat: Joglo', desc: 'Pintu masuk barat ke jalur Murbayaksa.', content: 'Joglo berfungsi sebagai titik registrasi utama dan area pengarahan keselamatan. Sebelum Anda memulai pendakian, pastikan botol air Anda penuh!' },
+        p1: { name: 'Pos 1: Geger Sabuk', desc: 'Pendakian yang stabil dimulai di sini.', content: 'Geger Sabuk dikenal karena formasi batuannya yang unik. Tanah di sini kaya akan mineral vulkanik dari letusan kuno, menciptakan habitat yang sempurna bagi lumut lokal.' },
+        p2: { name: 'Pos 2: Karto Cigintung', desc: 'Jauh di dalam hutan.', content: 'Karto Cigintung adalah tempat utama untuk mengamati burung. Dengarkan baik-baik, dan Anda mungkin mendengar panggilan khas Elang Jawa yang terbang di atas kanopi.' },
+        p3: { name: 'Pos 3: Pasir Buntu', desc: 'Jalur berpasir yang menantang.', content: 'Medan berpasir Pasir Buntu adalah sisa geologis dari aliran abu vulkanik kuno. Vegetasi di sini sangat beradaptasi dengan kondisi tanah yang kering dan berpori.' },
+        p4: { name: 'Pos 4: Geger Muria', desc: 'Punggung bukit dengan pemandangan indah.', content: 'Dari punggung bukit Geger Muria, Anda dapat melihat hutan penyangga yang luas. Area ini bertindak sebagai zona resapan air yang penting bagi desa-desa sekitarnya.' },
+        p5: { name: 'Pos 5: Geger Baturenges', desc: 'Medan berbatu di depan.', content: 'Kata "Baturenges" merujuk pada batuan vulkanik yang keras dan bergerigi yang ditemukan di sini. Berhati-hatilah dengan langkah Anda karena jalur menjadi lebih menantang secara teknis.' },
+        p6: { name: 'Pos 6: Campaka Cibedok', desc: 'Area lembah yang hijau dan subur.', content: 'Campaka Cibedok dinamai dari bunga Campaka harum yang sesekali mekar di iklim mikro lembap ini. Ini adalah oasis keanekaragaman hayati.' },
+        p7: { name: 'Pos 7: Kakatelan Kawah Purba', desc: 'Kawah vulkanik kuno.', content: 'Anda berdiri di dekat tepi kawah kuno yang tidak aktif. Endapan belerang di tanah menciptakan warna-warna unik dan mendukung tanaman ekstremofil yang spesifik.' },
+        p8: { name: 'Pos 8: Salikur', desc: 'Flora dataran tinggi tumbuh subur di sini.', content: 'Pada ketinggian ini, udara terasa lebih tipis dan lebih dingin. Pohon-pohon di sini, seperti Cantigi, memiliki daun tebal untuk mencegah hilangnya kelembapan ditiup angin dingin.' },
+        p9: { name: 'Pos 9: Cece Logo', desc: 'Bagian akhir dari jalur dalam.', content: 'Cece Logo menandai tantangan besar terakhir. Kanopi yang lebat di sini menciptakan lingkungan yang sejuk dan teduh yang disukai oleh hewan nokturnal yang beristirahat di siang hari.' },
+        eg: { name: 'Gerbang Timur: Gowok', desc: 'Pintu masuk dan keluar timur.', content: 'Selamat telah mencapai Gerbang Timur! Gowok adalah titik istirahat tradisional di mana pendaki dapat mendinginkan diri, rehidrasi, dan menyinkronkan kemajuan digital mereka.' },
       }
     }
   }

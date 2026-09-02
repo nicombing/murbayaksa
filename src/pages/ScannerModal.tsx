@@ -22,7 +22,7 @@ const ScannerModal = () => {
     setScanning(false);
     setSuccess(true);
     await unlockCheckpoint(nextCheckpoint.id);
-    setTimeout(() => navigate('/app/dashboard'), 2500);
+    setTimeout(() => navigate(`/app/pos/${nextCheckpoint.id}`), 2500);
   };
 
   useEffect(() => {
