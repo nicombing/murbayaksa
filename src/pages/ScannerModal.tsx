@@ -14,11 +14,14 @@ const ScannerModal = () => {
   const [success, setSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   
+  const [scannedCheckpoint, setScannedCheckpoint] = useState<any>(null);
+  
   const nextCheckpoint = checkpoints.find(c => !c.unlockedAt);
   const scannerRef = useRef<Html5Qrcode | null>(null);
 
   const handleUnlock = async () => {
     if (!nextCheckpoint) return;
+    setScannedCheckpoint(nextCheckpoint);
     setScanning(false);
     setSuccess(true);
     await unlockCheckpoint(nextCheckpoint.id);
@@ -66,7 +69,7 @@ const ScannerModal = () => {
     }
   }, [scanning, nextCheckpoint]);
 
-  if (!nextCheckpoint) {
+  if (!nextCheckpoint && !success) {
     return (
       <div className="h-full flex flex-col items-center justify-center p-6 bg-background text-center">
         <div className="w-20 h-20 bg-card rounded-full flex items-center justify-center text-accent mb-6 shadow-md">
@@ -107,7 +110,7 @@ const ScannerModal = () => {
             <CheckCircle2 size={48} />
           </div>
           <h2 className="text-3xl font-bold text-white mb-2">{t('pwa.scanner.unlocked')}</h2>
-          <p className="text-white/80 text-lg">{t(`pwa.waypoints.${nextCheckpoint.id}.name`)}</p>
+          <p className="text-white/80 text-lg">{scannedCheckpoint ? t(`pwa.waypoints.${scannedCheckpoint.id}.name`) : ''}</p>
         </div>
       </div>
 
