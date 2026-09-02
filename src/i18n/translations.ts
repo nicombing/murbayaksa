@@ -210,7 +210,7 @@ export const translations = {
         completedTitle: 'Jalur Selesai!',
         completedDesc: 'Anda telah membuka semua pos di jalur ini.',
         btnSync: 'Sinkron Data Sekarang',
-        unlocked: 'Terbuka!',
+        unlocked: 'Pos Ditemukan!',
         instructionScan: 'Arahkan kamera ke penanda',
         instructionSaved: 'Pos disimpan secara lokal'
       },

@@ -19,13 +19,14 @@ const ScannerModal = () => {
   const nextCheckpoint = checkpoints.find(c => !c.unlockedAt);
   const scannerRef = useRef<Html5Qrcode | null>(null);
 
-  const handleUnlock = async () => {
-    if (!nextCheckpoint) return;
-    setScannedCheckpoint(nextCheckpoint);
+  const handleUnlock = async (scannedId: string) => {
+    const cp = checkpoints.find(c => c.id === scannedId);
+    if (!cp) return;
+    setScannedCheckpoint(cp);
     setScanning(false);
     setSuccess(true);
-    await unlockCheckpoint(nextCheckpoint.id);
-    setTimeout(() => navigate(`/app/pos/${nextCheckpoint.id}`), 2500);
+    await unlockCheckpoint(scannedId);
+    setTimeout(() => navigate(`/app/pos/${scannedId}`), 2500);
   };
 
   useEffect(() => {
@@ -43,10 +44,10 @@ const ScannerModal = () => {
           if (decodedText === nextCheckpoint.id) {
             if (scannerRef.current?.isScanning) {
               scannerRef.current.stop().then(() => {
-                handleUnlock();
+                handleUnlock(decodedText);
               }).catch(console.error);
             } else {
-              handleUnlock();
+              handleUnlock(decodedText);
             }
           } else {
             // It's a valid QR code, but not the right one!
