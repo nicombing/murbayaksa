@@ -138,7 +138,7 @@ export const translations = {
       subtitle: 'Hutan Penyangga Tangkuban Perahu',
       title1: 'Masuki',
       title2: 'Laboratorium Alam',
-      desc: 'Rasakan pengalaman jalur pendakian dan eko-eduturisme utama di Indonesia. Temukan alam, sejarah, dan tantangan fisik melintasi jalur 6km hingga 112km kami.',
+      desc: 'Rasakan pengalaman jalur pendakian dan Eco-Edutourism utama di Indonesia. Temukan alam, sejarah, dan tantangan fisik melintasi jalur 6km hingga 112km kami.',
       btnExplore: 'Jelajahi Jalur',
       btnDownload: 'Unduh Web App'
     },
@@ -167,7 +167,7 @@ export const translations = {
       btnRequest: 'Minta Brosur B2B'
     },
     footer: {
-      desc: 'Jalur eko-eduturisme dan ketahanan utama Indonesia yang terletak di hutan penyangga Tangkuban Perahu.',
+      desc: 'Jalur Eco-Edutourism dan ketahanan utama Indonesia yang terletak di hutan penyangga Tangkuban Perahu.',
       gates: 'Gerbang Akses',
       eastGate: 'Gerbang Timur:',
       westGate: 'Gerbang Barat:',
